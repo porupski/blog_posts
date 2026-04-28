@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Why Your Voice Assistant Understands English Perfectly — But Stumbles on Croatian</title>
+  <meta name="description" content="A quiet data crisis is shaping which languages get smart technology and which don't." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+
+<div id="progress"></div>
+
+<header class="site-header">
+  <a href="../index.html" class="site-name">Ivan Porupski</a>
+  <nav>
+    <a href="../index.html">Home</a>
+    <!-- TODO: uncomment when CV is ready -->
+    <!-- <a href="../cv.html">CV</a> -->
+  </nav>
+</header>
+
+<header class="post-header">
+  <p class="post-kicker">Science &amp; Language Technology</p>
+  <h1 class="post-title">Why Your Voice Assistant Understands English Perfectly — But Stumbles on Croatian</h1>
+  <p class="post-dek">A quiet data crisis is shaping which languages get smart technology and which don't.</p>
+  <p class="post-byline"><span>Ivan Porupski</span> &nbsp;·&nbsp; Jožef Stefan International Postgraduate School &nbsp;·&nbsp; 5 min read</p>
+</header>
+
+<main class="post-body">
+
+  <p class="lead">Imagine you are a linguist at a university in Zagreb. You want to build a voice assistant that understands Croatian — something that could help elderly speakers, power accessibility tools for deaf and hard-of-hearing users, or simply bring your language into the modern AI era. You go looking for the open, freely available recordings of Croatian speech that your model needs to learn from.</p>
+
+  <p>You find 35 hours.</p>
+
+  <p>For comparison, German researchers have access to over 2,600 hours spread across 61 separate corpora. English has so much data that a single unlabelled collection called <b>Libri-Light</b> contains 60,000 hours of audio that nobody has even bothered to transcribe yet.</p>
+
+  <p>This is the quiet crisis at the heart of speech technology: not a shortage of data in the abstract, but a profound and growing imbalance in whose language gets recorded, annotated, and shared.</p>
+
+  <figure class="figure">
+    <img src="../img/mohamed_hassan-translate-3796096.jpg" alt="A person speaking into a microphone" />
+    <figcaption>Automated translation - a common use of language technologies in everyday life. Image by <a href="https://pixabay.com/users/mohamed_hassan-5229782/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=3796096">Mohamed Hassan</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=3796096">Pixabay</a>.</figcaption>
+  </figure>
+
+  <h2>Teaching a Machine to Listen</h2>
+
+  <p>Before we get to the crisis, it helps to understand what a speech corpus actually is and why it matters so much.</p>
+
+  <p>A <b>speech corpus</b> is, at its simplest, a large organised collection of recordings of people talking, paired with accurate written transcriptions of what they said. Modern speech AI learns by consuming these recordings in enormous quantities. The more data a model sees, the better it gets. Show it a thousand hours of Croatian speech and it starts to understand Croatian. Show it a dozen and it mostly guesses.</p>
+
+  <p>But what kind of speech gets collected matters just as much as how much. There is a world of difference between a person reading a passage aloud from a book, a politician delivering a prepared speech in parliament, and two friends arguing over coffee. Researchers treat these as distinct domains, and models trained in one domain often stumble badly in another.</p>
+
+  <div class="domain-strip fade-in">
+    <div class="domain-strip-header">Speech domains: what gets collected and what does not</div>
+    <div class="domain-item">
+      <span class="domain-name">Read speech</span>
+      <span class="domain-desc">Scripted, deliberate, minimal disfluency. Audiobooks, TED talks, prompted recordings. The backbone of most large datasets.</span>
+      <span class="domain-badge badge-abundant">Abundant</span>
+    </div>
+    <div class="domain-item">
+      <span class="domain-name">Parliamentary</span>
+      <span class="domain-desc">Formal but unscripted. Rich speaker metadata. Public domain. The dominant growth area in European corpora.</span>
+      <span class="domain-badge badge-abundant">Growing fast</span>
+    </div>
+    <div class="domain-item">
+      <span class="domain-name">Conversational</span>
+      <span class="domain-desc">Overlapping speech, interruptions, fragments, filled pauses. How people actually talk. Very rare in open collections.</span>
+      <span class="domain-badge badge-scarce">Very scarce</span>
+    </div>
+    <div class="domain-item">
+      <span class="domain-name">Dialectal</span>
+      <span class="domain-desc">Regional variation, non-standard phonology. Essential for real-world robustness. Largely absent from open resources.</span>
+      <span class="domain-badge badge-rare">Near absent</span>
+    </div>
+  </div>
+
+  <p>A system trained on parliamentary Croatian and then tested on a phone call between two friends is not encountering a harder version of the same problem. It is encountering a different problem entirely. The hesitations, the unfinished sentences, the dialect words — none of that was in its training data.</p>
+
+  <p>The field has exploded in scale over the past decade. Early benchmarks from the 1990s offered a few hundred hours of telephone English. Today, a single dataset called <b>YODAS</b> has amassed over 500,000 hours of multilingual speech scraped from YouTube. A 2024 European project called <b>MOSEL</b> catalogued nearly a million hours of speech data covering the official languages of the EU. Crowdsourced efforts like <b>Common Voice</b> take a different approach, relying on volunteers to record and validate speech across over 100 languages, including low-resource Slavic varieties — though coverage remains uneven. A million hours is more audio than a person could listen to in a hundred lifetimes. Yet inside that abundance, the gaps are stark.</p>
+
+  <h2>The Price of a Human Ear</h2>
+
+  <blockquote>
+    <p>"Creating 880 hours of carefully transcribed Slovenian speech required more than 20,000 person-hours and roughly €600,000."</p>
+  </blockquote>
+
+  <p>That figure comes from the <b>ARTUR</b> project, one of the largest <b>manually</b> transcribed spoken resources for any South Slavic language. People listening, typing, checking, correcting, listening again. For a major tech company, €600,000 is a rounding error. For a university linguistics department in Ljubljana or Belgrade, it is an impossible sum.</p>
+
+  <div class="stat-row fade-in">
+    <div class="stat">
+      <span class="stat-num">880h</span>
+      <span class="stat-label">audio transcribed</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">20,000</span>
+      <span class="stat-label">person-hours of work</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">€600k</span>
+      <span class="stat-label">total investment</span>
+    </div>
+  </div>
+
+  <p>This is precisely why the data gap persists. It is not that Croatian or Serbian or Bulgarian are somehow harder to record. It is that the communities with the most to gain from this technology have the least capacity to fund the infrastructure it requires.</p>
+
+  <p>The good news is that this bottleneck is finally cracking open, thanks to a generation of AI models that can do automatically what once required thousands of hours of human effort.</p>
+
+  <h2>When AI Learns to Transcribe Itself</h2>
+
+  <p>In 2023, OpenAI released a model called <b>Whisper</b>, trained on 680,000 hours of audio from across the internet. Unlike earlier speech models that needed carefully labelled training data, Whisper was trained on messy, imperfect, web-scraped audio at massive scale. It emerged able to transcribe dozens of languages with remarkable accuracy, entirely for free, with no human annotation required.</p>
+
+  <p>The effect on corpus building was immediate. Projects that previously would have required years of manual work could now generate rough transcripts automatically and spend human effort only on checking the most important sections. A European parliamentary speech project called <b>EuroSpeech</b> used this approach to assemble over 61,000 hours of speech from 22 national parliaments. Another called <b>Granary</b> reached nearly 643,000 hours across 25 languages.</p>
+
+  <p>But automatic transcription is only the beginning. Modern enrichment pipelines layer on additional information automatically: who is speaking (speaker diarisation), where exactly each word falls in the audio down to the millisecond (forced alignment), whether the speaker hesitated or said "uhh" (disfluency detection), and even what emotional tone the speech carries (sentiment annotation). Resources like <b>ParlaSpeech</b>, covering Croatian, Czech, Polish, and Serbian parliamentary speech across 6,000 hours, now offer five of these annotation layers simultaneously, all generated automatically at a quality that rivals human annotators.</p>
+
+  <p>The bottleneck in corpus creation has shifted. The hard part is no longer transcribing audio. It is deciding which audio is worth transcribing in the first place, and making sure the pipeline quality holds up across languages where the underlying models were never designed to work.</p>
+
+  <figure class="figure">
+    <img src="../img/parlaspeech-v3_annotations.png" alt="ParlaSpeech v3 annotation layers" style="background:#fff;" />
+    <figcaption>An example of multi-layer automatic enrichment: word-level alignment, filled-pause markers, and morphosyntactic labels stacked on top of a parliamentary speech transcript in ParlaSpeech v3. See <a href="https://clarinsi.github.io/parlaspeech/" target="_blank" rel="noopener">clarinsi.github.io/parlaspeech</a>.</figcaption>
+  </figure>
+
+  <h2>A Map of Who Gets Left Behind</h2>
+
+  <p>The data is clearest when you look at what is registered in <b>CLARIN</b>, the main European research infrastructure for language resources. The distribution of spoken language corpora reads less like a scientific landscape and more like a map of historical investment in language technology.</p>
+
+  <div class="lang-chart fade-in" id="langChart">
+    <div class="lang-chart-header">Spoken corpora in CLARIN by language (approximate hours)</div>
+    <div class="lang-row"><span class="lang-name">Finnish</span><div class="lang-bar-wrap"><div class="lang-bar" data-width="100"></div></div><span class="lang-hours">12,703 h</span></div>
+    <div class="lang-row"><span class="lang-name">German</span><div class="lang-bar-wrap"><div class="lang-bar" data-width="21"></div></div><span class="lang-hours">2,641 h</span></div>
+    <div class="lang-row"><span class="lang-name">Czech</span><div class="lang-bar-wrap"><div class="lang-bar" data-width="13"></div></div><span class="lang-hours">1,671 h</span></div>
+    <div class="lang-row"><span class="lang-name">Slovenian</span><div class="lang-bar-wrap"><div class="lang-bar" data-width="10"></div></div><span class="lang-hours">~1,300 h</span></div>
+    <div class="lang-row"><span class="lang-name">Norwegian</span><div class="lang-bar-wrap"><div class="lang-bar muted" data-width="3.2"></div></div><span class="lang-hours">411 h</span></div>
+    <div class="lang-row"><span class="lang-name">French</span><div class="lang-bar-wrap"><div class="lang-bar muted" data-width="3.1"></div></div><span class="lang-hours">395 h</span></div>
+    <div class="lang-row"><span class="lang-name">Estonian</span><div class="lang-bar-wrap"><div class="lang-bar muted" data-width="2.9"></div></div><span class="lang-hours">369 h</span></div>
+    <div class="lang-row"><span class="lang-name">Serbian</span><div class="lang-bar-wrap"><div class="lang-bar muted" data-width="0.4"></div></div><span class="lang-hours">51 h</span></div>
+    <div class="lang-row"><span class="lang-name">Polish</span><div class="lang-bar-wrap"><div class="lang-bar muted" data-width="0.3"></div></div><span class="lang-hours">38 h</span></div>
+    <div class="lang-row"><span class="lang-name">Croatian</span><div class="lang-bar-wrap"><div class="lang-bar muted" data-width="0.27"></div></div><span class="lang-hours">35 h</span></div>
+    <div class="lang-row"><span class="lang-name">Slovak</span><div class="lang-bar-wrap"><div class="lang-bar muted" data-width="0"></div></div><span class="lang-hours">not listed</span></div>
+  </div>
+
+  <p>Finnish researchers have over 12,700 hours, largely thanks to a single dialect collection. German has 61 separate corpora. Then the numbers fall off a cliff. Serbian: 51 hours. Polish: 38 hours. Croatian: 35 hours. And Slovak, a living language spoken by five million people, does not appear in the international inventory at all. Controlled evaluation benchmarks like <b>FLEURS</b> cover 102 languages in parallel, but their Slavic test sets remain thin, restricted to read speech, and too small to reveal how models truly perform on everyday language.</p>
+
+  <p>This is not just an inconvenience for linguists. The same data gap that makes it hard to study Serbian or Polish or Croatian or Slovak syntax, also makes it hard to build voice assistants, live captions for deaf viewers, speech therapy applications, and accessibility tools for people with disabilities who rely on voice control. The languages spoken by communities that most need catch-up investment in digital infrastructure are precisely the ones for which that investment has been hardest to attract.</p>
+
+  <h2>Beyond Parliament: The Missing Conversations</h2>
+
+  <p>There is a second, subtler gap that even the largest modern datasets do not fix: almost all of the audio that has been collected comes from formal settings. Read audiobooks. Parliamentary debates. Prompted recordings in quiet studios. These are the domains where data is easiest to collect at scale and cheapest to transcribe.</p>
+
+  <p>What is almost entirely missing is people just talking. The hesitations and interruptions and sentence fragments of everyday conversation. The way language sounds when nobody is performing for a microphone. The way a grandmother speaks to her grandchildren, the way colleagues argue over lunch, the way teenagers drop syllables that no dictionary would recognise. Resources like the <b>Slovenian GOS</b> corpus were meticulously designed to capture exactly this kind of authentic interaction, balancing recording types across public, private, and educational settings. But GOS covers one language and 120 hours. Against the million-hour backdrop of parliamentary and audiobook data, genuinely spontaneous speech is a rounding error.</p>
+
+  <p>Dialectal speech barely exists in open collections at all. Standard-language models often simply fail on regional accents, and for many smaller Slavic varieties, no open dialectal corpus exists to train or test on. The domain and dialect gaps compound the language gap: even a researcher who manages to find 50 hours of Croatian audio will find it is almost entirely from parliament, leaving conversational and dialectal Croatian essentially unmapped.</p>
+
+  <figure class="figure">
+    <img src="../img/clarin.si_search.png" alt="CLARIN.SI repository search interface" />
+    <figcaption>The CLARIN.SI repository, the national distribution point for Slovenian and South Slavic language resources. A search for spoken corpora reveals starkly uneven coverage across European languages. Browse at <a href="https://www.clarin.si/repository/xmlui/" target="_blank" rel="noopener">clarin.si/repository/xmlui</a>.</figcaption>
+  </figure>
+
+  <h2>What Would Actually Help</h2>
+
+  <p>The path forward is not mysterious. It requires spontaneous speech collection for under-resourced Slavic languages, moving beyond parliamentary proceedings to invest in conversational, dialectal, broadcast, and educational material. For languages such as Bulgarian, Slovak, and the South Slavic varieties, informal field recordings that capture everyday interactions are critically needed.</p>
+
+  <p>Standardised enrichment pipelines should be established and published openly alongside data, so that any institution can replicate what the best-resourced projects have built. Right now, most corpora only report how accurately they were transcribed, leaving all the richer annotation layers — including sentiment, disfluency markers, and syntactic structure — unverified and incomparable across datasets.</p>
+
+  <p>Interoperability across repositories deserves immediate attention. CLARIN, Hugging Face, and OpenSLR serve different communities but host overlapping resources. Cross-listing corpora and adopting standardised metadata would significantly improve discoverability and reduce duplicated effort.</p>
+
+  <p>Most fundamentally, the community should shift toward treating corpora as living resources with clear version histories rather than one-time snapshots that get published and forgotten. The most impactful projects, including ParlaMint now in its fifth release and ParlaSpeech in its third, have accumulated their value precisely because they kept adding languages, fixing errors, and deepening annotation over time.</p>
+
+  <p>The voice assistants of the next decade will be shaped by the data decisions being made today. Whether deaf users in Croatia get reliable live captions, whether a dialect speaker in rural Bulgaria can use voice search on their phone, whether a child with a speech impairment in Slovakia has access to the same therapy tools as their German counterpart — all of that depends, more than most people realise, on whether someone decided it was worth collecting 35 more hours of audio.</p>
+
+</main>
+
+<footer class="site-footer">
+  <p>Based on <em>Open-source Spoken and Speech Corpora: A Survey with European Focus and Slavic Emphasis</em>,<br>
+  Seminar I, Ivan Porupski. Jožef Stefan International Postgraduate School, Ljubljana, 2025/2026.<br>
+  Supervisor: Dr. Nikola Ljubešić.</p>
+  <p style="margin-top:1rem;">
+    Data sources:
+    <a href="https://www.clarin.eu/resource-families/spoken-corpora" target="_blank" rel="noopener">CLARIN Spoken Corpora</a> &nbsp;·&nbsp;
+    <a href="https://aclanthology.org/2024.emnlp-main.783" target="_blank" rel="noopener">MOSEL (Gaido et al., 2024)</a> &nbsp;·&nbsp;
+    <a href="https://arxiv.org/abs/2511.01619" target="_blank" rel="noopener">ParlaSpeech 3.0</a>
+  </p>
+</footer>
+
+<script>
+  // Reading progress bar
+  window.addEventListener('scroll', () => {
+    const doc = document.documentElement;
+    const scrolled = doc.scrollTop / (doc.scrollHeight - doc.clientHeight);
+    document.getElementById('progress').style.width = (scrolled * 100) + '%';
+  });
+
+  // Scroll-triggered fade-ins
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) e.target.classList.add('visible');
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Animate language bars when chart scrolls into view
+  const barObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.querySelectorAll('.lang-bar').forEach(bar => {
+          bar.style.width = bar.dataset.width + '%';
+        });
+        barObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  const chart = document.getElementById('langChart');
+  if (chart) barObserver.observe(chart);
+</script>
+
+</body>
+</html>
